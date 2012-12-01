@@ -32,17 +32,16 @@ module Tweader
     end
 
     # This class uses GoogleReaderApi to do some work, but lets us work with
-    # RSS::Atom::Entry objects instead.
+    # RSS::Atom::Entry objects directly.
     class EntryApi
-      include GoogleReaderApi::RssUtils
 
       def initialize(api)
         @api = api
       end
 
       # Returns an Array of RSS::Atom::Entry.
-      def entries(*args)
-        create_entries(*args).map { |entry| entry.entry }
+      def entries(atom_feed)
+        RSS::Parser.parse(atom_feed.force_encoding('utf-8')).entries
       end
 
       # Add a tag to an entry.
