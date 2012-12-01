@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "tweader"
   gem.require_paths = ["lib"]
   gem.version       = Tweader::VERSION
+
+  gem.add_dependency "GoogleReaderApi", ["~>0.4.0"]
 end
