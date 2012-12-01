@@ -26,7 +26,7 @@ module Tweader
       # Find labeled items, excluding read items.
       label = "atom/user/-/label/#{CGI.escape @label}"
       filter = "user/-/state/com.google/read"
-      order = "o"
+      order = "o" # oldest first
       response = @google_reader_api.get_link label, :n => limit, :xt => filter, :r => order
       @entry_api.entries(response).map { |e| Tweader::ReaderItem.new(e, @entry_api) }
     end
