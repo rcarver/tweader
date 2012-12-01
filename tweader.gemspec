@@ -16,4 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Tweader::VERSION
 
   gem.add_dependency "GoogleReaderApi", ["~>0.4.0"]
+
+  gem.add_development_dependency "rake"
+  gem.add_development_dependency "minitest", "~>4.0"
 end
