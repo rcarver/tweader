@@ -1,4 +1,5 @@
 require 'google_reader_api'
+require 'twitter'
 
 require 'tweader/version'
 
