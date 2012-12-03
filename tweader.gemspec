@@ -4,8 +4,8 @@ require File.expand_path('../lib/tweader/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Ryan Carver"]
   gem.email         = ["ryan@ryancarver.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{A tiny library to read from Google Reader and write to Twitter}
+  gem.summary       = %q{A tiny library to read from Google Reader and write to Twitter}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
