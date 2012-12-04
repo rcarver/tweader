@@ -7,19 +7,20 @@ describe "acceptance: the client" do
 
   let(:twitter_client) {
     Twitter::Client.new(
-      :consumer_key       => ENV['TW_CONSUMER_KEY'],
-      :consumer_secret    => ENV['TW_CONSUMER_SECRET'],
-      :oauth_token        => ENV['TW_OAUTH_TOKEN'],
-      :oauth_token_secret => ENV['TW_OAUTH_SECRET']
+      :consumer_key       => ENV['TWITTER_CONSUMER_KEY'],
+      :consumer_secret    => ENV['TWITTER_CONSUMER_SECRET'],
+      :oauth_token        => ENV['TWITTER_OAUTH_TOKEN'],
+      :oauth_token_secret => ENV['TWITTER_OAUTH_SECRET']
     )
   }
   let(:twitter) { Tweader::Twitter.new(twitter_client) }
-  let(:tweeter) { Tweader::Tweeter.new(recipient, twitter) }
+  let(:tweet_writer) { Tweader::TweetWriter.new(recipient) }
+  let(:tweeter) { Tweader::Tweeter.new(twitter, tweet_writer) }
 
   let(:google_reader_api) {
     GoogleReaderApi::Api.new(
-      :email    => ENV['GR_EMAIL'],
-      :password => ENV['GR_PASSWORD'])
+      :email    => ENV['GOOGLE_READER_EMAIL'],
+      :password => ENV['GOOGLE_READER_PASSWORD'])
   }
   let(:reader) { Tweader::Reader.new(google_reader_api, label) }
 
