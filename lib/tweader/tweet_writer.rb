@@ -1,18 +1,23 @@
 module Tweader
   class TweetWriter
 
-    def initialize
+    # Initialize a new TweetWriter.
+    #
+    # recipient - String name of the user to @reply.
+    #
+    def initialize(recipient = nil)
+      @recipient = recipient
       @max_length = 140
     end
 
     # Write a tweet.
     #
-    # recipient - String name of the user to @reply.
-    # item      - Tweader::ReaderItem to be tweeted.
+    # item - Tweader::ReaderItem to be tweeted.
     #
     # Returns a String.
-    def write_tweet(recipient, item)
-      "@#{recipient} #{item.source_title}: #{item.title} #{item.link}"
+    def write_tweet(item)
+      prefix = @recipient ? "@#{@recipient} " : ""
+      "#{prefix}#{item.source_title}: #{item.title} #{item.link}"
     end
   end
 end
