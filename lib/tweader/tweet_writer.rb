@@ -41,7 +41,6 @@ module Tweader
       actual -= title.size
 
       if actual < 0
-        puts [counter, actual].inspect
         chop = counter / 2
         source_title = source_title[0, chop]
         title = title[0, chop]
