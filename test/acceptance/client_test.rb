@@ -27,6 +27,7 @@ describe "acceptance: the client" do
   let(:client) { Tweader::Client.new(reader, tweeter) }
 
   it "reads and tweets" do
+    skip "skipping"
     begin
       client.tweet(1)
     rescue GoogleLogin::ClientLogin::BadAuthentication
